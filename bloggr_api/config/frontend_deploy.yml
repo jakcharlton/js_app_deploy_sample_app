@@ -1,0 +1,4 @@
+deploy:
+  # main: 1406327842100
+  main: latest
+  admin: latest

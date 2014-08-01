@@ -1,0 +1,21 @@
+<h3>Edit Posts</h3>
+{{#each model itemController='post'}}
+<form role='form' class='post-edit-form'>
+  <div class='form-group'>
+    <label>Title</label>
+    {{input value=title class='form-control'}}
+
+    <label>Body</label>
+    {{textarea value=body class='form-control'}}
+
+    <label>Author</label>
+    {{input value=author class='form-control'}}
+    <br />
+    {{#if status}}
+    <p>{{status}}</p>
+    {{/if}}
+    <button {{action 'savePost'}} type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>
+<hr />
+{{/each}}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BloggrAdmin</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/bloggr-admin.css">
+  </head>
+  <body>
+    <script>
+      window.BloggrAdminENV = {{ENV}};
+      window.EmberENV = window.BloggrAdminENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/bloggr-admin.js"></script>
+    <script>
+      window.BloggrAdmin = require('bloggr-admin/app')['default'].create(BloggrAdminENV.APP);
+    </script>
+  </body>
+</html>

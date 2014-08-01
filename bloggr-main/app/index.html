@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bloggr</title>
+    <meta name='description' content=''>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    {{BASE_TAG}}
+
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='assets/vendor.css'>
+    <link rel='stylesheet' href='assets/bloggr.css'>
+  </head>
+  <body>
+    <script>
+      window.BloggrENV = {{ENV}};
+      window.EmberENV = window.BloggrENV.EmberENV;
+    </script>
+    <script src='assets/vendor.js'></script>
+    <script src='assets/bloggr.js'></script>
+    <script>
+      window.Bloggr = require('bloggr/app')['default'].create(BloggrENV.APP);
+    </script>
+    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+  </body>
+</html>

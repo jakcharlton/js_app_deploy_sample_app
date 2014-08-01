@@ -1,0 +1,30 @@
+source 'https://rubygems.org'
+
+ruby '2.1.2'
+
+gem 'rails', '4.1.4'
+gem 'rails-api'
+gem 'pg'
+gem 'active_model_serializers'
+gem 'unicorn'
+gem 'foreman'
+
+gem 'redis'
+
+group :production do
+  gem 'rails_12factor'
+end
+
+group :development do
+  gem 'spring'
+end
+
+group :development, :test do
+  gem 'dotenv-rails'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
+  gem 'pry-rescue'
+end
+
+gem 'admin', path: 'engines/admin'
