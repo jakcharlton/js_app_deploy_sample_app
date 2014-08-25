@@ -1,2 +1,6 @@
-uri = URI.parse 'redis://localhost:6379/'
-$redis = Redis.new(host: uri.host, port: uri.port, password: uri.password)
+uri = if Rails.env.development?
+        URI.parse 'redis://localhost:6379/'
+      else
+        URI.parse ENV['REDISCLOUD_URL']
+      end
+$redis = Redis.new host: uri.host, port: uri.port, password: uri.password

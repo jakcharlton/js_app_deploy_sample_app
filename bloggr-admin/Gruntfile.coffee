@@ -57,9 +57,8 @@ module.exports = (grunt) ->
         stdout: true
         stderr: true
         failOnError: true
-      # dev: command: 'ember build --environment=development --output-path ../bloggr_api/public'
-      # prod: command: 'ember build --environment=production'
-      dev: command: 'ember build --environment=production'
+      dev: command: 'ember build --environment=development --output-path ../bloggr_api/public'
+      prod: command: 'ember build --environment=production'
       done: command: "echo Deploy complete, deploy key: #{timestamp}"
 
   grunt.loadNpmTasks 'grunt-s3'
@@ -70,14 +69,13 @@ module.exports = (grunt) ->
   # Default task(s). flag can be '-prod' or '-p'
   target = if grunt.option('prod') or grunt.option('p') then 'prod' else 'dev'
 
-  # if target is 'prod'
-  grunt.registerTask 'default', [ "shell:#{target}"
-                                  'replace'
-                                  's3'
-                                  "redis:dev"
-                                  "redis:prod"
-                                  "shell:done" ]
-  # else
-  #   grunt.registerTask 'default', [ "shell:dev"
-  #                                   "redis:#{target}" ]
+  if target is 'prod'
+    grunt.registerTask 'default', [ "shell:#{target}"
+                                    'replace'
+                                    's3'
+                                    "redis:#{target}"
+                                    "shell:done" ]
+  else
+    grunt.registerTask 'default', [ "shell:dev"
+                                    "redis:#{target}" ]
 

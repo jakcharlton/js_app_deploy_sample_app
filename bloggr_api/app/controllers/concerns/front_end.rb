@@ -5,7 +5,6 @@ module FrontEnd
 
   def index_html namespace=nil
     @namespace = namespace
-    # return File.read 'public/index.html' if Rails.env.development?
 
     index_key = if @namespace
                   "#{@namespace}:#{deploy_key}:index.html"
@@ -33,6 +32,7 @@ module FrontEnd
   end
 
   def current_deploy
+    return latest_deploy unless Rails.env.production?
     deploy = @namespace ? frontend_deploy[@namespace] : frontend_deploy[:main]
     deploy == 'latest' ? latest_deploy : deploy
   end

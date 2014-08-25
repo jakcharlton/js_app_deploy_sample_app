@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::API
   include FrontEnd
+  include HtmlHandler
 
   def index
-    render text: index_html
+    @index_html = index_html
+    insert_flags 'deploy_key', 'ab_test', 'features'
+
+    render text: @index_html
   end
+
 end
