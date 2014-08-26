@@ -7,6 +7,6 @@ FeatureManager = Ember.Object.extend
     @set 'AB', window.ENV?.AB or 'A'
 
     @set 'isMarketer', @get('AB') is 'A'
-    @set 'isEducator', !@get('isMarkter')
+    @set 'isEducator', !@get('isMarketer')
 
 `export default FeatureManager;`
