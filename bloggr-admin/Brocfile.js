@@ -4,6 +4,7 @@ var ENV = require('./.env.json');
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
+  outputPaths: { app: { html: 'app.html' }},
   fingerprint: { prepend: ENV.CDN.url }
 });
 

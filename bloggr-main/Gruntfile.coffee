@@ -35,13 +35,13 @@ module.exports = (grunt) ->
         options:
           host: '<%= env.REDIS.development.host %>'
           port: '<%= env.REDIS.development.port %>'
-        files: src : ["dist/index.html"]
+        files: src : ["dist/app.html"]
       prod:
         options:
           host: '<%= env.REDIS.production.host %>'
           port: '<%= env.REDIS.production.port %>'
           connectionOptions: auth_pass: '<%= env.REDIS.production.password %>'
-        files: src : ["dist/index.html"]
+        files: src : ["dist/app.html"]
 
     replace:
       dist:

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
 
   def index
     if Rails.env.development?
-     @index_html =  File.read Rails.root.join('public','index.html')
+     @index_html =  File.read Rails.root.join('public','app.html')
     else
       @index_html = index_html
     end
