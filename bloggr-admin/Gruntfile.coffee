@@ -45,7 +45,7 @@ module.exports = (grunt) ->
 
     replace:
       dist:
-        src: ['dist/*.html']
+        src: ['dist/*.html','dist/**/*.js','dist/**/*.css']
         overwrite: true
         replacements: [
           from: 'cloudfront.net/assets'
